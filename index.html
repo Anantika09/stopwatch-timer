@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stopwatch & Timer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <div class="app-container">
+    <h1>⏱ Stopwatch & Timer</h1>
+    <div class="tabs">
+      <button id="stopwatch-tab" class="active" onclick="showStopwatch()">Stopwatch</button>
+      <button id="timer-tab" onclick="showTimer()">Timer</button>
+    </div>
+
+    <div id="stopwatch-section" class="card">
+      <div class="stopwatch-display" id="stopwatch">00:00:00.000</div>
+      <div class="button-row">
+        <button class="start" onclick="startStopwatch()">Start</button>
+        <button class="pause" onclick="pauseStopwatch()">Pause</button>
+        <button class="reset" onclick="resetStopwatch()">Reset</button>
+      </div>
+    </div>
+
+    <div id="timer-section" class="card hidden">
+      <div class="stopwatch-display" id="timer">00:00</div>
+      <div class="timer-inputs">
+        <input type="number" id="timer-minutes" placeholder="Min" min="0">
+        <input type="number" id="timer-seconds" placeholder="Sec" min="0" max="59">
+      </div>
+      <div class="button-row">
+        <button class="start" onclick="startTimer()">Start Timer</button>
+        <button class="reset" onclick="resetTimer()">Reset Timer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function showStopwatch() {
+      document.getElementById("stopwatch-section").classList.remove("hidden");
+      document.getElementById("timer-section").classList.add("hidden");
+      document.getElementById("stopwatch-tab").classList.add("active");
+      document.getElementById("timer-tab").classList.remove("active");
+    }
+
+    function showTimer() {
+      document.getElementById("stopwatch-section").classList.add("hidden");
+      document.getElementById("timer-section").classList.remove("hidden");
+      document.getElementById("stopwatch-tab").classList.remove("active");
+      document.getElementById("timer-tab").classList.add("active");
+    }
+  </script>
+</body>
+</html>
